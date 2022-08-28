@@ -8,19 +8,19 @@ import { actionCreators } from "./state/index"
 
 function App() {
 
-  const state = useSelector((state) => state.bank);
+  const products = useSelector((state) => state.products);
+  const product = useSelector((state) => state.products.find((p) => p.id === 1));
 
   const dispatch = useDispatch();
 
-  const { depositMoney, withdrawMoney } = bindActionCreators(actionCreators, dispatch);
+  const { buyProduct, sellProduct } = bindActionCreators(actionCreators, dispatch);
   
-  console.log(state)
-
   return (
     <div className="App">
-      <h1>{state}</h1>
-      <button onClick={() => depositMoney(1000)}>Deposit</button>
-      <button onClick={() => withdrawMoney(1000)}>Withdraw</button>
+      <h1>{product.name}</h1>
+      <h2>Quantity: {product.quantity}</h2>
+      <button onClick={() => buyProduct(1)}>Buy it</button>
+      <button onClick={() => sellProduct(1)}>Return it</button>
     </div>
   );
 }

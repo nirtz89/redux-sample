@@ -1,20 +1,19 @@
 
-export const depositMoney = (amount) => {
+export const buyProduct = (id) => {
     return (dispatch) => {
         dispatch({
-            type: "deposit",
-            payload: amount
+            type: "buy",
+            payload: id
         });
     }
 }
 
 
-export const withdrawMoney = (amount) => {
-    console.log(amount, "Lol")
+export const sellProduct = (id) => {
     return (dispatch) => {
         dispatch({
-            type: "withdraw",
-            payload: amount
+            type: "sell",
+            payload: id
         });
     }
 }
